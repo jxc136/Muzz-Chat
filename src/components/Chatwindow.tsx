@@ -1,4 +1,5 @@
 import { Paper } from '@mui/material';
+import OtherUserChatBubble from './Otheruserchatbubble';
 import UserChatBubble from './Userchatbubble';
 
 const ChatWindow = () =>  {
@@ -14,6 +15,7 @@ const ChatWindow = () =>  {
       backgroundColor: 'white',
     }}>
       <UserChatBubble />
+      <OtherUserChatBubble />
     </Paper></>
   )
 }
