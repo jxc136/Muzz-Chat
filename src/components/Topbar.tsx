@@ -1,7 +1,11 @@
 import { Box, Typography, Avatar } from '@mui/material/';
+import { useChatStore } from "../store/chatstore"
 
 
 const TopBar = () => {
+
+const otherUserName = useChatStore(state => state.conversation.otherUserName)
+
 return(
 
   <><Box className="matched-user-wrapper"
@@ -17,7 +21,7 @@ return(
     }}>
     <Avatar alt="Maya" src="/profilepic.png" sx={{ width: 80, height: 80 }}/>
     <Typography variant="h6" sx={{ padding: 2, fontWeight: "bold" }}>
-      Maya
+      {otherUserName}
     </Typography>
   </Box><Box className="topBar" sx={{
     display: "flex",

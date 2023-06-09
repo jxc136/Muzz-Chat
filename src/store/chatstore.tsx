@@ -1,26 +1,27 @@
 import { create } from "zustand";
 
 export interface ChatStore {
-conversation: Conversation
+  conversation: Conversation;
 }
 
 export interface Conversation {
-  Conversation: {
-    activeUserName: string,
-    otherUserName: string,
-    posts: Post[]
-  }
+  activeUserName: string;
+  otherUserName: string;
+  posts: Post[];
 }
 
 export interface Post {
-  message: string,
-  read: boolean,
-  timestamp: Date  
+  message: string;
+  read: boolean;
+  timestamp: Date;
 }
-
-const createChatStore = () => ({
-  
-})
+export const useChatStore = create<ChatStore>((set) => ({
+  conversation: {
+    activeUserName: 'Zain',
+    otherUserName: 'Maya  ',
+    posts: [],  
+  },
+}));
 
 // import { create } from "zustand";
 
