@@ -1,4 +1,5 @@
 import { Paper } from '@mui/material';
+import MessageInput from './MessageInput';
 import OtherUserChatBubble from './Otheruserchatbubble';
 import UserChatBubble from './Userchatbubble';
 
@@ -16,6 +17,7 @@ const ChatWindow = () =>  {
     }}>
       <UserChatBubble />
       <OtherUserChatBubble />
+      <MessageInput />
     </Paper></>
   )
 }
