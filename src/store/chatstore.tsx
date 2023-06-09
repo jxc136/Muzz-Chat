@@ -14,12 +14,29 @@ export interface Post {
   message: string;
   read: boolean;
   timestamp: Date;
+  author: String
 }
+
+const initialPosts: Post[] = [
+  {
+    message: 'Hello, Maya. My name is Zain.',
+    read: false,
+    timestamp: new Date('2023-06-10T10:00:00Z'),
+    author: "Zain"
+  },
+  {
+    message: 'Hi Zain! Nice to meet you.',
+    read: false,
+    timestamp: new Date('2023-06-10T10:01:00Z'),
+    author: "Maya"
+  },
+];
+
 export const useChatStore = create<ChatStore>((set) => ({
   conversation: {
     activeUserName: 'Zain',
-    otherUserName: 'Maya  ',
-    posts: [],  
+    otherUserName: 'Maya',
+    posts: initialPosts 
   },
 }));
 

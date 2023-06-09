@@ -1,7 +1,9 @@
 import { Box, Typography} from '@mui/material/';
 
-
-const OtherUserChatBubble = () => {
+export interface OtherUserChatBubbleProps {
+  message: string;
+}
+export const OtherUserChatBubble = ({message}: OtherUserChatBubbleProps) => {
 
   return (
   
@@ -17,7 +19,7 @@ const OtherUserChatBubble = () => {
       padding: '10px'
     }}> 
      
-      Hi this is to see what a much longer message might look like compared to my first standard one
+     {message}
     </Typography>
   </Box>
   )
