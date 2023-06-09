@@ -1,4 +1,5 @@
 import { Paper } from '@mui/material';
+import UserChatBubble from './Userchatbubble';
 
 const ChatWindow = () =>  {
 
@@ -12,7 +13,7 @@ const ChatWindow = () =>  {
       minHeight: '800px',
       backgroundColor: 'white',
     }}>
-      <p>Hi</p>
+      <UserChatBubble />
     </Paper></>
   )
 }
