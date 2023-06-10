@@ -2,6 +2,7 @@ import { create } from "zustand";
 
 export interface ChatStore {
   conversation: Conversation;
+  addPost: (post:Post) => void
 }
 
 export interface Conversation {
@@ -30,14 +31,30 @@ const initialPosts: Post[] = [
     timestamp: new Date('2023-06-10T10:01:00Z'),
     author: "Maya"
   },
+
+  {
+    message: 'Lets test a long message to make sure that still displays well for us ',
+    read: false,
+    timestamp: new Date('2023-06-10T10:01:00Z'),
+    author: "Maya"
+  },
 ];
 
-export const useChatStore = create<ChatStore>((set) => ({
+export const useChatStore = create<ChatStore>((set, get) => ({
   conversation: {
     activeUserName: 'Zain',
     otherUserName: 'Maya',
     posts: initialPosts 
   },
+  addPost: (post: Post) => {
+    const updatedPosts = [...get().conversation.posts, post];
+    set(() => ({
+      conversation: {
+        ...get().conversation, 
+        posts: updatedPosts
+      }
+    }));
+  }
 }));
 
 // import { create } from "zustand";

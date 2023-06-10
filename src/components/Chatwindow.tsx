@@ -33,9 +33,9 @@ const ChatWindow = () =>  {
       <br />
       <br />
       {chatHistory.map((post: Post) => {
-        return post.author === activeUserName ? <UserChatBubble message={post.message} /> : <OtherUserChatBubble message={post.message}/>
+        return post.author === activeUserName ? <UserChatBubble message={post.message} key={post.message} /> : <OtherUserChatBubble message={post.message} key={post.message}/>
       })}
-     
+     <MessageInput />
     </Paper></>
   )
 }
