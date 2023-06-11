@@ -20,6 +20,23 @@ const ChatWindow = () =>  {
   const activeUserName = useChatStore(state => state.conversation.activeUserName)
   const otherUserName = useChatStore(state => state.conversation.otherUserName)
   
+  const formatTimestamp = (date: Date) => {
+    const today = new Date();
+    const isToday = (date.getDate() === today.getDate());
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const formattedTime = `${hours > 12 ? hours - 12 : hours}:${minutes < 10 ? '0' : ''}${minutes} ${hours >= 12 ? 'pm' : 'am'}`;
+    
+    const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    
+    if (isToday) {
+      return `Today ${formattedTime}`;
+    } else {
+      return `${monthNames[date.getMonth()]} ${date.getDate()} ${date.getFullYear()} ${formattedTime}`;
+    }
+  }
+
+
   return (
   <>
   <TopBar />
@@ -33,7 +50,7 @@ const ChatWindow = () =>  {
       <br />
       <br />
       {chatHistory.map((post: Post) => {
-        return post.author === activeUserName ? <UserChatBubble message={post.message} key={post.message} /> : <OtherUserChatBubble message={post.message} key={post.message}/>
+        return post.author === activeUserName ? <UserChatBubble message={post.message} key={post.message} timestamp={formatTimestamp(post.timestamp)} /> : <OtherUserChatBubble message={post.message} key={post.message} timestamp={formatTimestamp(post.timestamp)}/>
       })}
      <MessageInput />
     </Paper></>
