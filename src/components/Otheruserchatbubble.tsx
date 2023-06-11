@@ -22,12 +22,7 @@ export const OtherUserChatBubble = ({message, timestamp, showTimeStamp, margin}:
       marginLeft: "20px",
       borderRadius: '10px'
     }}>
-      <Typography sx={{
-        padding: '10px'
-      }}>
-
-        {message}
-      </Typography>
+      <Typography sx={{ padding: '10px 25px 10px 10px' }}>{message}</Typography>
     </Box></>
   )
 }

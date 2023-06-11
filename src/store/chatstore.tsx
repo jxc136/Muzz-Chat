@@ -21,7 +21,7 @@ export interface Post {
 const initialPosts: Post[] = [
   {
     message: 'Hello, Maya. My name is Zain.',
-    read: false,
+    read: true,
     timestamp: new Date('2023-06-10T10:00:00Z'),
     author: "Zain"
   },

@@ -55,8 +55,8 @@ const ChatWindow = () =>  {
          const showTimeStamp: boolean = !previousPost || (timeDifference !== null && timeDifference > 3600000);
 
          const sameAuthor = previousPost ? post.author === previousPost.author : false;
-         const margin = (sameAuthor && timeDifference !== null && timeDifference < 20000) ? '5px' : '20px';
-        return post.author === activeUserName ? <UserChatBubble message={post.message} key={post.message} margin={margin} showTimeStamp={showTimeStamp} timestamp={formatTimestamp(post.timestamp)} /> : <OtherUserChatBubble message={post.message} key={post.message} showTimeStamp={showTimeStamp} margin={margin} timestamp={formatTimestamp(post.timestamp)}/>
+         const margin = (sameAuthor && timeDifference !== null && timeDifference < 20000) ? '0' : '20px';
+        return post.author === activeUserName ? <UserChatBubble message={post.message} key={post.message} margin={margin} showTimeStamp={showTimeStamp} read={post.read} timestamp={formatTimestamp(post.timestamp)} /> : <OtherUserChatBubble message={post.message} key={post.message} showTimeStamp={showTimeStamp} margin={margin} timestamp={formatTimestamp(post.timestamp)}/>
       })}
      <MessageInput />
     </Paper></>
