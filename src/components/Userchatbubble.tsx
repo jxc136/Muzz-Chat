@@ -5,11 +5,12 @@ import { Box, Typography} from '@mui/material/';
 export interface UserChatBubbleProps {
   message: string;
   timestamp: string;
+  showTimeStamp:Boolean;
 }
-export const UserChatBubble = ({message, timestamp}: UserChatBubbleProps) => {
+export const UserChatBubble = ({message, timestamp, showTimeStamp}: UserChatBubbleProps) => {
 
   return (
-  <><Typography variant="body2" color="textSecondary" sx={{alignSelf: 'center'}}>{`${timestamp}`}</Typography>
+  <>{showTimeStamp ? <Typography variant="body2" color="textSecondary" sx={{alignSelf: 'center'}}>{`${timestamp}`}</Typography> : null}
   
   <Box className="user-chat-bubble" sx={{
       alignSelf: 'flex-end',

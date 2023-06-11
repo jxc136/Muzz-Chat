@@ -3,11 +3,14 @@ import { Box, Typography} from '@mui/material/';
 export interface OtherUserChatBubbleProps {
   message: string;
   timestamp: string;
+  showTimeStamp: boolean;
 }
-export const OtherUserChatBubble = ({message, timestamp}: OtherUserChatBubbleProps) => {
+export const OtherUserChatBubble = ({message, timestamp, showTimeStamp}: OtherUserChatBubbleProps) => {
 
   return (
-  <><Typography variant="body2" color="textSecondary" sx={{ alignSelf: 'center' }}>{`${timestamp}`}</Typography><Box className="user-chat-bubble" sx={{
+  <>{showTimeStamp ? <Typography variant="body2" color="textSecondary" sx={{alignSelf: 'center'}}>{`${timestamp}`}</Typography> : null}
+  
+ <Box className="user-chat-bubble" sx={{
       alignSelf: 'flex-start',
       backgroundColor: '#F0F4FC',
       minHeight: '50px',

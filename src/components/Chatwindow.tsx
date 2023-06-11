@@ -49,8 +49,11 @@ const ChatWindow = () =>  {
       <br />
       <br />
       <br />
-      {chatHistory.map((post: Post) => {
-        return post.author === activeUserName ? <UserChatBubble message={post.message} key={post.message} timestamp={formatTimestamp(post.timestamp)} /> : <OtherUserChatBubble message={post.message} key={post.message} timestamp={formatTimestamp(post.timestamp)}/>
+      {chatHistory.map((post: Post, index:number) => {
+         const previousPost = index > 0 ? chatHistory[index - 1] : null;
+         const timeDifference = previousPost ? post.timestamp.getTime() - previousPost.timestamp.getTime() : null
+         const showTimeStamp: boolean = !previousPost || (timeDifference !== null && timeDifference > 3600000);
+        return post.author === activeUserName ? <UserChatBubble message={post.message} key={post.message} showTimeStamp={showTimeStamp} timestamp={formatTimestamp(post.timestamp)} /> : <OtherUserChatBubble message={post.message} key={post.message} showTimeStamp={showTimeStamp} timestamp={formatTimestamp(post.timestamp)}/>
       })}
      <MessageInput />
     </Paper></>
