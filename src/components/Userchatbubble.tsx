@@ -6,8 +6,9 @@ export interface UserChatBubbleProps {
   message: string;
   timestamp: string;
   showTimeStamp:Boolean;
+  margin: string
 }
-export const UserChatBubble = ({message, timestamp, showTimeStamp}: UserChatBubbleProps) => {
+export const UserChatBubble = ({message, timestamp, showTimeStamp, margin}: UserChatBubbleProps) => {
 
   return (
   <>{showTimeStamp ? <Typography variant="body2" color="textSecondary" sx={{alignSelf: 'center'}}>{`${timestamp}`}</Typography> : null}
@@ -17,7 +18,10 @@ export const UserChatBubble = ({message, timestamp, showTimeStamp}: UserChatBubb
       backgroundColor: '#FB3F6B',
       minHeight: '50px',
       maxWidth: '600px',
-      margin: '20px',
+      marginTop: margin,
+      marginBottom: "20px",
+      marginRight: "20px",
+      marginLeft: "20px",
       borderRadius: '10px'
     }}>
       <Typography sx={{
