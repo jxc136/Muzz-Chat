@@ -1,4 +1,4 @@
-import { Paper } from '@mui/material';
+import { Paper, Typography } from '@mui/material';
 import OtherUserChatBubble from './Otheruserchatbubble';
 import TopBar from './Topbar';
 import UserChatBubble from './Userchatbubble';
@@ -17,6 +17,7 @@ const ChatWindow = () =>  {
   // gets the chat history from the store and renders it 
 
   const chatHistory = useChatStore(state => state.conversation.posts)
+  const matchTime = useChatStore(state => state.conversation.matchTime)
   const activeUserName = useChatStore(state => state.conversation.activeUserName)
   const otherUserName = useChatStore(state => state.conversation.otherUserName)
   
@@ -49,6 +50,23 @@ const ChatWindow = () =>  {
       <br />
       <br />
       <br />
+       <Typography
+          variant="body2"
+          color="textSecondary"
+          sx={{ alignSelf: 'center' }}
+        >
+          {`${formatTimestamp(matchTime)}`}
+        </Typography>
+      <Typography
+          variant="h4"
+          color="textPrimary"
+          sx={{ alignSelf: 'center',
+        margin: "10px 50px 50px" }}
+        >
+         {"You matched \uD83C\uDF88"}
+        </Typography> 
+
+      
       {chatHistory.map((post: Post, index:number) => {
          const previousPost = index > 0 ? chatHistory[index - 1] : null;
          const timeDifference = previousPost ? post.timestamp.getTime() - previousPost.timestamp.getTime() : null

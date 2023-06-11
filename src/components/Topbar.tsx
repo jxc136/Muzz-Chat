@@ -19,7 +19,7 @@ return(
       margin: "20px"
       
     }}>
-    <Avatar alt="Maya" src="/profilepic.png" sx={{ width: 80, height: 80 }}/>
+     <Avatar alt="Maya" src="/profilepic.png" sx={{ width: 80, height: 80 }}/>
     <Typography variant="h6" sx={{ padding: 2, fontWeight: "bold" }}>
       {otherUserName}
     </Typography>

@@ -9,6 +9,7 @@ export interface Conversation {
   activeUserName: string;
   otherUserName: string;
   posts: Post[];
+  matchTime: Date;
 }
 
 export interface Post {
@@ -44,7 +45,9 @@ export const useChatStore = create<ChatStore>((set, get) => ({
   conversation: {
     activeUserName: 'Zain',
     otherUserName: 'Maya',
-    posts: initialPosts 
+    posts: initialPosts,
+    matchTime: new Date('2023-06-10T10:50:00'),
+
   },
   addPost: (post: Post) => {
     const updatedPosts = [...get().conversation.posts, post];
