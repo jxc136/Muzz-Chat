@@ -22,7 +22,7 @@
         author: conversation.activeUserName
       }
       addPost(post)
-      console.log('submit')
+      setMessageInput("");
     }
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
