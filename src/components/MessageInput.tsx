@@ -27,7 +27,6 @@
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       setMessageInput(event.target.value);
-      console.log(messageInput)
     }
 
     return(
@@ -51,7 +50,7 @@
         minWidth: '400px',
         alignSelf: 'center',
         
-      }} value={messageInput} placeholder="Type Your Message" onChange={handleChange} >Type your message</TextField>
+      }} value={messageInput} placeholder="Type Your Message" onChange={handleChange} />
         </form>
         
       </Box>

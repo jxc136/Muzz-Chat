@@ -47,7 +47,7 @@ export const UserChatBubble = ({
         <Typography sx={{ padding: '10px 25px 10px 10px' }}>{message}</Typography>
         {read ? <DoneAllIcon
           sx={{
-            fontSize: '12px', 
+            fontSize: '12px',   
             color: 'white',
             position: 'absolute', 
             bottom: '4px', 

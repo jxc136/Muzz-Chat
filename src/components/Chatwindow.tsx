@@ -20,7 +20,7 @@ const ChatWindow = () =>  {
   const chatHistory = useChatStore(state => state.conversation.posts)
   const matchTime = useChatStore(state => state.conversation.matchTime)
   const activeUserName = useChatStore(state => state.conversation.activeUserName)
-  const otherUserName = useChatStore(state => state.conversation.otherUserName)
+
 
 
   
