@@ -1,9 +1,9 @@
 export interface Post {
-    message: string;
-    read: boolean;
-    timestamp: Date;
-    author: String;
-} 
+  message: string;
+  read: boolean;
+  timestamp: Date;
+  author: String;
+}
 
 export interface OtherUserChatBubbleProps {
   message: string;
