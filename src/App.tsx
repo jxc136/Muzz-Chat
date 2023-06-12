@@ -1,5 +1,5 @@
 import React from 'react';
-import ChatWindow from './components/Chatwindow';
+import ChatWindow from './components/ChatWindow';
 
 function App() {
   return (

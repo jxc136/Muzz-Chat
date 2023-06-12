@@ -6,6 +6,7 @@ import MessageInput from './MessageInput';
 import { useChatStore
  } from '../store/chatstore';
 
+
 export interface Post {
   message: string;
   read: boolean;
@@ -20,6 +21,8 @@ const ChatWindow = () =>  {
   const matchTime = useChatStore(state => state.conversation.matchTime)
   const activeUserName = useChatStore(state => state.conversation.activeUserName)
   const otherUserName = useChatStore(state => state.conversation.otherUserName)
+
+
   
   const formatTimestamp = (date: Date) => {
     const today = new Date();
