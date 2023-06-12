@@ -3,16 +3,10 @@ import OtherUserChatBubble from './Otheruserchatbubble';
 import TopBar from './Topbar';
 import UserChatBubble from './Userchatbubble';
 import MessageInput from './MessageInput';
-import { useChatStore
- } from '../store/chatstore';
+import { useChatStore} from '../store/chatstore';
+import { Post } from '../interfaces/types'
 
 
-export interface Post {
-  message: string;
-  read: boolean;
-  timestamp: Date;
-  author: String
-} 
 const ChatWindow = () =>  {
 
   // gets the chat history from the store and renders it 

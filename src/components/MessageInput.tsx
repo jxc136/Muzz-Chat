@@ -1,13 +1,7 @@
   import { TextField , Box} from '@mui/material';
   import { useChatStore} from '../store/chatstore';
   import { useState } from 'react'
-
-  export interface Post {
-    message: string;
-    read: boolean;
-    timestamp: Date;
-    author: String
-  } 
+  import { Post } from '../interfaces/types'
 
   const MessageInput = () => {
     const [messageInput, setMessageInput] = useState<string>('')

@@ -1,13 +1,7 @@
 import { Dialog, DialogContent, Paper, Typography, TextField, Button } from "@mui/material"
 import { useState } from 'react'
 import { useChatStore } from '../store/chatstore';
-
- export interface Post {
-    message: string;
-    read: boolean;
-    timestamp: Date;
-    author: String
-  } 
+import { Post } from '../interfaces/types'
 
 const ControlPanel = ({ open, onClose }: { open: boolean, onClose: () => void }) => {
 

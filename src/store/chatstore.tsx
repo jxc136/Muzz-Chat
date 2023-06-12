@@ -1,4 +1,5 @@
   import { create } from "zustand";
+  import { Post } from '../interfaces/types'
 
   export interface ChatStore {
     conversation: Conversation;
@@ -11,13 +12,6 @@
     otherUserName: string;
     posts: Post[];
     matchTime: Date;
-  }
-
-  export interface Post {
-    message: string;
-    read: boolean;
-    timestamp: Date;
-    author: String
   }
 
   const initialPosts: Post[] = [
@@ -71,27 +65,4 @@
     }
   }));
 
-  // import { create } from "zustand";
 
-  // const createPokemonStore = (set) => ({
-  //   pokemon: [],
-  //   fetchPokemon: async () => {
-  //     await fetch("https://pokeapi.co/api/v2/pokemon")
-  //       .then((response) => response.json())
-  //       .then((data) => set({ pokemon: data.results }));
-  //   },
-  // });
-
-  // const createCounterStore = (set, get) => ({
-  //   number: 123,
-  //   increaseCounterNumber: () => set((state) => ({ number: state.number + 1 })),
-  //   decreaseCounterNumber: () => set((state) => ({ number: state.number - 1 })),
-  //   logNumber: () => {
-  //     console.log(` Current number value equals ${get().number}`);
-  //   },
-  // });
-
-  // export const useCombinedStore = create((...params) => ({
-  //   ...createPokemonStore(...params),
-  //   ...createCounterStore(...params),
-  // }));

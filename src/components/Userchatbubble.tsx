@@ -1,14 +1,7 @@
 import { Box, Typography } from '@mui/material/';
 import DoneIcon from '@mui/icons-material/Done';
 import DoneAllIcon from '@mui/icons-material/DoneAll';
-
-export interface UserChatBubbleProps {
-  message: string;
-  timestamp: string;
-  showTimeStamp: Boolean;
-  margin: string;
-  read: boolean
-}
+import { UserChatBubbleProps } from '../interfaces/types'
 
 export const UserChatBubble = ({
   message,
