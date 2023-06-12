@@ -62,15 +62,7 @@ export const UserChatBubble = ({
             right: '6px',
           }}
         />}
-        <DoneIcon
-          sx={{
-            fontSize: '12px', 
-            color: 'white',
-            position: 'absolute', 
-            bottom: '4px', 
-            right: '6px',
-          }}
-        />
+        
       </Box>
     </>
   );
