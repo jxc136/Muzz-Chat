@@ -6,10 +6,13 @@ import { Post } from '../interfaces/types'
 const ControlPanel = ({ open, onClose }: { open: boolean, onClose: () => void }) => {
 
   const [messageInput, setMessageInput] = useState<string>('')
-  const { addPost, conversation } = useChatStore();
-  const otherUserName = useChatStore(state => state.conversation.otherUserName)
-  const chatHistory = useChatStore(state => state.conversation.posts)
-  const markAllAsRead = useChatStore(state => state.markAllAsRead)
+  const { addPost, conversation, markAllAsRead } = useChatStore(state => ({
+    addPost: state.addPost,
+    conversation: state.conversation,
+    markAllAsRead: state.markAllAsRead,
+  }));
+
+  const { otherUserName, posts: chatHistory } = conversation;
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault()

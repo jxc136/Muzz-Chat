@@ -3,21 +3,17 @@ import OtherUserChatBubble from './Otheruserchatbubble';
 import TopBar from './Topbar';
 import UserChatBubble from './Userchatbubble';
 import MessageInput from './MessageInput';
-import { useChatStore} from '../store/chatstore';
+import { ChatStore, useChatStore} from '../store/chatstore';
 import { Post } from '../interfaces/types'
 
 
 const ChatWindow = () =>  {
 
   // gets the chat history from the store and renders it 
+  const selectConversation = (state: ChatStore) => state.conversation;
 
-  const chatHistory = useChatStore(state => state.conversation.posts)
-  const matchTime = useChatStore(state => state.conversation.matchTime)
-  const activeUserName = useChatStore(state => state.conversation.activeUserName)
+  const { posts: chatHistory, matchTime, activeUserName } = useChatStore(selectConversation);
 
-
-
-  
   const formatTimestamp = (date: Date) => {
     const today = new Date();
     const isToday = (date.getDate() === today.getDate());
