@@ -2,16 +2,32 @@ import { Dialog, DialogContent, Paper, Typography, TextField, Button } from "@mu
 import { useState } from 'react'
 import { useChatStore } from '../store/chatstore';
 
+ export interface Post {
+    message: string;
+    read: boolean;
+    timestamp: Date;
+    author: String
+  } 
+
 const ControlPanel = ({ open, onClose }: { open: boolean, onClose: () => void }) => {
 
   const [messageInput, setMessageInput] = useState<string>('')
+  const { addPost, conversation } = useChatStore();
   const otherUserName = useChatStore(state => state.conversation.otherUserName)
   const chatHistory = useChatStore(state => state.conversation.posts)
   const markAllAsRead = useChatStore(state => state.markAllAsRead)
 
-  const handleSubmit = () => {
-    console.log('submit')
-  }
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+      event.preventDefault()
+      const post:Post = {
+        message: messageInput,
+        read: false,
+        timestamp: new Date(),
+        author: otherUserName
+      }
+      addPost(post)
+      setMessageInput("");
+    }
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setMessageInput(event.target.value);
