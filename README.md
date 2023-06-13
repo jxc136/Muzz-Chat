@@ -71,11 +71,11 @@ Implement error handling in the Zustand store and within components.
 
 ### Features
 
-Add a blur/unblur feature to mimic the app functionality
-Implement an emoji picker
-Allow users to add photos and videos, along with functionality to control how they are displayed
-Implement a block feaure that ends conversations and UI to handle blocking and being blocked
-Mobile responsives for smaller screen sizes
+- Add a blur/unblur feature to mimic the app functionality
+- Implement an emoji picker
+- Allow users to add photos and videos, along with functionality to control how they are displayed
+- Implement a block feaure that ends conversations and UI to handle blocking and being blocked
+- Mobile responsives for smaller screen sizes
 
 ## Screenshot
 
