@@ -76,3 +76,10 @@ Implement an emoji picker
 Allow users to add photos and videos, along with functionality to control how they are displayed
 Implement a block feaure that ends conversations and UI to handle blocking and being blocked
 Mobile responsives for smaller screen sizes
+
+## Planning
+
+The initial planning document can be found [here](Muzz/muzz-chat/design/design.md.
+Additionally, here is the initial app diagram
+
+![App Diagram](/public/app-diagram.png)

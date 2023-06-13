@@ -46,6 +46,7 @@ const TopBar = () => {
             justifyContent: "center",
             alignItems: "center",
           }}>
+          {/* This is hardcoded, but it should get the other users profile image from the DB in a fullstack app*/}
           <Avatar
             alt="Maya"
             src="/profilepic.png"
