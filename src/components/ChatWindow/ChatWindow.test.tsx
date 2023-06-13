@@ -2,6 +2,16 @@ import React from "react";
 import { render, screen, cleanup } from "@testing-library/react";
 import ChatWindow from "./ChatWindow";
 import { useChatStore } from "../../store/chatstore";
+/**
+ * Unit tests for the ChatWindow component.
+ * These tests focus on verifying the correct rendering of chat history,
+ * along with the appropriate formatting of timestamps for each post.
+ *
+ * More comprehensive tests could include checks for varying user
+ * roles (e.g., active user vs other user) and their effects on message display.
+ * Additionally, browser-based testing tools
+ * like Cypress could be employed to ensure visual rendering correctness and end-to-end interactions.
+ */
 
 // The test file does not have access to the chatWindows formatTimestamp function so it is re-defined here
 const formatTimestamp = (date: Date) => {

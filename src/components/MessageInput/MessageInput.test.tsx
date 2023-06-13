@@ -1,3 +1,13 @@
+/**
+ * Unit tests for the MessageInput component.
+ * These tests aim to validate the behavior of the message input field,
+ * including typing, form submission, and clearing of the input field.
+ *
+ * Note: In a more comprehensive testing strategy, mocking Zustand store should be
+ * considered for isolation of the state management. Additionally, browser-based testing tools
+ * like Cypress could be employed to ensure visual rendering correctness and end-to-end interactions.
+ */
+
 import React from "react";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import MessageInput from "./MessageInput";

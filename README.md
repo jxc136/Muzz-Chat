@@ -1,46 +1,78 @@
-# Getting Started with Create React App
+# Muzz Chat for Web
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple front-end implementation of a web version of muzz-chat. It demonstrates a conversation between two users, showing the interactivity of the chat system. For demonstration purposes, an initial conversation has been hardcoded into the app.
 
-## Available Scripts
+Please note that per the exercise instructions, this app only provides frontend functionality for the chat feature.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- Showcases a chat conversation between two predefined users.
+- Messages are encased in chat bubbles
+- Chat bubbles are styled depending on the user type and the state of a message.
+- Messages that are delivered are marked with a single tick, read messages with two ticks.
+- Messages are be grouped using the following logic:
+  - Messages separated by more than an hour should be sectioned with the date and time - “{day} {timestamp}”
+  - Messages from the same user sent within 20s of each other should have a smaller vertical spacing between them. Making them look grouped together.
+- Presents a series of initial posts to illustrate the chat interface.
+- A control panel component to simulate two way communication, allowing users to send messages or view messages as the other user.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Technologies Used
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- React: The app is built with React, which allows for effective component-based architecture and efficient rendering of updates.
+- Zustand: Zustand is used for simplified state management within the app, keeping the global conversation state accessible.
+- TypeScript: The app uses TypeScript to ensure type safety and improve the development experience.
+- Material UI: MUI is used to enable rapid visual prototyping for UI elements.
+- Jest & React Testing Library: These testing frameworks are used for unit testing components and ensuring the app behaves as expected.
 
-### `npm test`
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To run the Muzz App locally, follow these steps:
 
-### `npm run build`
+> 1. Clone the repository to your local machine.
+>    2 Install the necessary dependencies by running the following commands:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+npm install
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Start the development server:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+npm start
+```
 
-### `npm run eject`
+Open your browser and navigate to http://localhost:3000 to view the app.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Usage
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Upon opening the app, you'll be presented with a series of preloaded posts between two users, illustrating a conversation.
+Each post displays the author, message content, and timestamp.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Testing
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+To run tests, navigate to the project root in your terminal and enter `npm run test`. A total of 13 tests should be present.
 
-## Learn More
+Unit tests were written for the Zustand store MessageInput and ChatWindow components, however the store was not mocked for component testing owing to time constraints.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Next Steps
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+If I were to further develop this app, the priority actions would be:
+
+### Testing
+
+- Improve test coverage to ensure that critical functionality is thoroughly tested, including tests to cover error handling, user interactions, and edge cases.
+- More visual testing of display elements, including for if a timestamp is displayed or not and for message spacing
+- More in-depth unit tests for the components functions.
+- Implement end-to-end testing for each of the main features.
+
+### Refactoring
+
+Implement error handling in the Zustand store and within components.
+
+### Features
+
+Add a blur/unblur feature to mimic the app functionality
+Implement an emoji picker
+Allow users to add photos and videos, along with functionality to control how they are displayed
+Implement a block feaure that ends conversations and UI to handle blocking and being blocked
+Mobile responsives for smaller screen sizes
