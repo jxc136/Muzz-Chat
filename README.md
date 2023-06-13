@@ -28,14 +28,14 @@ Please note that per the exercise instructions, this app only provides frontend 
 
 To run the Muzz App locally, follow these steps:
 
-> 1. Clone the repository to your local machine.
->    2 Install the necessary dependencies by running the following commands:
+- Clone the repository to your local machine.
+- Install the necessary dependencies by running the following commands:
 
 ```
 npm install
 ```
 
-Start the development server:
+- Start the development server:
 
 ```
 npm start
