@@ -1,7 +1,7 @@
 import { TextField, Box } from "@mui/material";
-import { useChatStore } from "../store/chatstore";
+import { useChatStore } from "../../store/chatstore";
 import { useState } from "react";
-import { Post } from "../interfaces/types";
+import { Post } from "../../interfaces/types";
 
 const MessageInput = () => {
   const [messageInput, setMessageInput] = useState<string>("");
@@ -9,6 +9,9 @@ const MessageInput = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (messageInput.length === 0) {
+      return;
+    }
     const post: Post = {
       message: messageInput,
       read: false,

@@ -1,10 +1,10 @@
 import { Paper, Typography } from "@mui/material";
-import OtherUserChatBubble from "./Otheruserchatbubble";
-import TopBar from "./Topbar";
-import UserChatBubble from "./Userchatbubble";
-import MessageInput from "./MessageInput";
-import { ChatStore, useChatStore } from "../store/chatstore";
-import { Post } from "../interfaces/types";
+import OtherUserChatBubble from "../Otheruserchatbubble";
+import TopBar from "../Topbar";
+import UserChatBubble from "../Userchatbubble";
+import MessageInput from "../MessageInput/MessageInput";
+import { ChatStore, useChatStore } from "../../store/chatstore";
+import { Post } from "../../interfaces/types";
 
 const ChatWindow = () => {
   // gets the chat history from the store and renders it
