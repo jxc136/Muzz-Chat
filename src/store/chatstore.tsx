@@ -29,7 +29,7 @@ export interface Conversation {
   posts: Post[];
   matchTime: Date;
 }
-
+// For demo purposes. Usually a conversation would start with zero posts
 const initialPosts: Post[] = [
   {
     message: "Hello, Maya. Nice to meet you My name is Zain.",
@@ -52,7 +52,9 @@ const initialPosts: Post[] = [
     author: "Zain",
   },
 ];
-
+// The useChatStore hook is created using Zustand's create method.
+// The app assumes a single conversation so values are hardcoded in.
+// A complete chat functionality would generate a conversation with the correct values for each use on match.
 export const useChatStore = create<ChatStore>((set, get) => ({
   conversation: {
     activeUserName: "Zain",
