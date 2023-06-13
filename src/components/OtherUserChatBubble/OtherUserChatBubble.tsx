@@ -1,5 +1,13 @@
+/**
+ * This module defines the OtherUserChatBubble component which is used for displaying a message post from the other user.
+ *
+ * This component displays the message text and a timestamp indicating when the message was posted.
+ *
+ * It uses Box and Typography components from Material UI to style the chat bubble and message text.
+ */
+
 import { Box, Typography } from "@mui/material/";
-import { OtherUserChatBubbleProps } from "../interfaces/types";
+import { OtherUserChatBubbleProps } from "../../interfaces/types";
 
 export const OtherUserChatBubble = ({
   message,

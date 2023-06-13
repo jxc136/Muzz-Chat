@@ -1,5 +1,17 @@
 /**
- * @jest-environment node
+ *
+ * The ChatStore is responsible for maintaining the global conversation state of the application.
+ * It exports a Zustand store hook called 'useChatStore'.
+ *
+ * It includes the current conversation and methods for adding a new post to the conversation and marking all posts as read.
+ *
+ * The Conversation interface represents a conversation between two users, including the posts
+ * in the conversation and a timestamp indicating when the match occurred.
+ *
+ * The initialPosts object is a list of initial posts used to initialize the conversation in the store
+ *
+ * For the purposes of demoing functionality, an initial conversation with initial posts has been added to display on render
+ * This also represents a single conversation instance, and a full webchat app would need to hold multiple conversation objects
  */
 
 import { create } from "zustand";
@@ -20,13 +32,13 @@ export interface Conversation {
 
 const initialPosts: Post[] = [
   {
-    message: "Hello, Maya. My name is Zain.",
+    message: "Hello, Maya. Nice to meet you My name is Zain.",
     read: true,
     timestamp: new Date("2023-06-10T10:00:00Z"),
     author: "Zain",
   },
   {
-    message: "Hi Zain! Nice to meet you.",
+    message: "Hi Zain! Nice to meet you. How are you doing today?",
     read: false,
     timestamp: new Date("2023-06-10T11:01:00Z"),
     author: "Maya",
@@ -34,10 +46,10 @@ const initialPosts: Post[] = [
 
   {
     message:
-      "Lets test a long message to make sure that still displays well for us ",
+      "Good thanks! Today is my first day on Muzz. Thought I might see what all of the fuss is about!",
     read: false,
     timestamp: new Date("2023-06-10T12:01:00Z"),
-    author: "Maya",
+    author: "Zain",
   },
 ];
 

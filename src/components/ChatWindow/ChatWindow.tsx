@@ -1,7 +1,17 @@
+/**
+ * This module defines the ChatWindow component which is responsible for displaying the chat conversation between two users.
+ * It retrieves the conversation data from the ChatStore and formats it for display.
+ *
+ * This component also handles timestamp formatting and message grouping.
+ * It uses the UserChatBubble and OtherUserChatBubble components to display each post in the conversation.
+ *
+ * A MessageInput component is rendered to allow the user to input new messages.
+ */
+
 import { Paper, Typography } from "@mui/material";
-import OtherUserChatBubble from "../Otheruserchatbubble";
-import TopBar from "../Topbar";
-import UserChatBubble from "../Userchatbubble";
+import OtherUserChatBubble from "../OtherUserChatBubble/OtherUserChatBubble";
+import TopBar from "../TopBar/Topbar";
+import UserChatBubble from "../UserChatBubble/UserChatBubble";
 import MessageInput from "../MessageInput/MessageInput";
 import { ChatStore, useChatStore } from "../../store/chatstore";
 import { Post } from "../../interfaces/types";
@@ -60,13 +70,10 @@ const ChatWindow = () => {
           minHeight: "800px",
           backgroundColor: "white",
         }}>
-        <br />
-        <br />
-        <br />
         <Typography
           variant="body2"
           color="textSecondary"
-          sx={{ alignSelf: "center" }}>
+          sx={{ alignSelf: "center", marginTop: "50px" }}>
           {`${formatTimestamp(matchTime)}`}
         </Typography>
         <Typography

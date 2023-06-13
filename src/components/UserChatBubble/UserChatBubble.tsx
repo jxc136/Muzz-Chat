@@ -1,7 +1,15 @@
+/**
+ * This module defines the UserChatBubble component which is used for displaying a message post from the active user.
+ *
+ * This component displays the message text and a timestamp indicating when the message was posted.
+ *
+ * It uses Box and Typography components from Material UI to style the chat bubble and message text.
+ */
+
 import { Box, Typography } from "@mui/material/";
 import DoneIcon from "@mui/icons-material/Done";
 import DoneAllIcon from "@mui/icons-material/DoneAll";
-import { UserChatBubbleProps } from "../interfaces/types";
+import { UserChatBubbleProps } from "../../interfaces/types";
 
 export const UserChatBubble = ({
   message,

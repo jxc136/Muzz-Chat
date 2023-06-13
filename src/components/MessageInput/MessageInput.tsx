@@ -1,3 +1,12 @@
+/**
+ * This module defines the MessageInput component which is used for inputting new messages by the user.
+ *
+ * This component includes a text field for entering a message and handles the form submission
+ * event to add the new post to the conversation.
+ *
+ * It uses the ChatStore to get the current conversation and the method for adding a post.
+ */
+
 import { TextField, Box } from "@mui/material";
 import { useChatStore } from "../../store/chatstore";
 import { useState } from "react";
@@ -9,6 +18,7 @@ const MessageInput = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    // Ensure that empty messages cannot be sent
     if (messageInput.length === 0) {
       return;
     }
@@ -37,6 +47,7 @@ const MessageInput = () => {
         justifyContent: "center",
         minWidth: "900px",
         minHeight: "100px",
+        border: "50px",
         boxShadow: "0px -5px 15px 0px rgba(235,235,235,0.25)",
       }}>
       <form onSubmit={handleSubmit}>

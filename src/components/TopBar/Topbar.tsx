@@ -1,7 +1,7 @@
 import { Box, Typography, Avatar, Button } from "@mui/material/";
-import { useChatStore } from "../store/chatstore";
+import { useChatStore } from "../../store/chatstore";
 import { useState } from "react";
-import ControlPanel from "./ControlPanel";
+import ControlPanel from "../ControlPanel/ControlPanel";
 
 const TopBar = () => {
   const [showControlPanel, setShowControlPanel] = useState(false);

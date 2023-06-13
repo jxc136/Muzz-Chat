@@ -1,3 +1,12 @@
+/**
+ * This module defines the ControlPanel component, which allows the app to simulate a two way interaction.
+ *
+ * Features includea form for posting a new message as the matched user,
+ * and a button for marking all messages as read.
+ *
+ * It uses the ChatStore to get the current conversation and the methods for adding a post and marking posts as read.
+ */
+
 import {
   Dialog,
   DialogContent,
@@ -7,8 +16,8 @@ import {
   Button,
 } from "@mui/material";
 import { useState } from "react";
-import { useChatStore } from "../store/chatstore";
-import { Post } from "../interfaces/types";
+import { useChatStore } from "../../store/chatstore";
+import { Post } from "../../interfaces/types";
 
 const ControlPanel = ({
   open,

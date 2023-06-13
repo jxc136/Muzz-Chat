@@ -1,3 +1,9 @@
+/**
+ * Commonly used interfaces are defined in this file
+ * in order to help make the codebase more modular and
+ * componnets easier to reuse.
+ */
+
 export interface Post {
   message: string;
   read: boolean;
