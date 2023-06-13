@@ -77,6 +77,10 @@ Allow users to add photos and videos, along with functionality to control how th
 Implement a block feaure that ends conversations and UI to handle blocking and being blocked
 Mobile responsives for smaller screen sizes
 
+## Screenshot
+
+![Screenshot](/public/muzz-chat-screenshot.png)
+
 ## Planning
 
 The initial planning document can be found [here](Muzz/muzz-chat/design/design.md.
