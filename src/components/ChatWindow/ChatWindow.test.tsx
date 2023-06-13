@@ -3,6 +3,7 @@ import { render, screen, cleanup } from "@testing-library/react";
 import ChatWindow from "./ChatWindow";
 import { useChatStore } from "../../store/chatstore";
 
+// The test file does not have access to the chatWindows formatTimestamp function so it is re-defined here
 const formatTimestamp = (date: Date) => {
   const today = new Date();
   const isToday = date.getDate() === today.getDate();

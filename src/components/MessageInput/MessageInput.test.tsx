@@ -1,80 +1,113 @@
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import MessageInput from "./MessageInput";
 import { useChatStore } from "../../store/chatstore";
+import { Post } from "../../interfaces/types";
 
-test("renders correctly", () => {
-  render(<MessageInput />);
-  expect(screen.getByPlaceholderText("Type Your Message")).toBeInTheDocument();
-});
+describe("MessageInput", () => {
+  const initialPosts: Post[] = [
+    {
+      message: "Hello, Maya. Nice to meet you My name is Zain.",
+      read: true,
+      timestamp: new Date("2023-06-10T10:00:00Z"),
+      author: "Zain",
+    },
+    {
+      message: "Hi Zain! Nice to meet you. How are you doing today?",
+      read: false,
+      timestamp: new Date("2023-06-10T11:01:00Z"),
+      author: "Maya",
+    },
 
-test("text in input field changes correctly when typing", () => {
-  render(<MessageInput />);
-  const inputElement = screen.getByPlaceholderText(
-    "Type Your Message"
-  ) as HTMLInputElement;
+    {
+      message:
+        "Good thanks! Today is my first day on Muzz. Thought I might see what all of the fuss is about!",
+      read: false,
+      timestamp: new Date("2023-06-10T12:01:00Z"),
+      author: "Zain",
+    },
+  ];
 
-  fireEvent.change(inputElement, { target: { value: "Hello" } });
-  expect(inputElement.value).toBe("Hello");
+  beforeEach(() => {
+    // Reset the conversation state of the store to its initial state
+    useChatStore.setState({
+      conversation: {
+        activeUserName: "Zain",
+        otherUserName: "Maya",
+        posts: initialPosts,
+        matchTime: new Date("2023-06-10T10:50:00"),
+      },
+    });
+  });
 
-  fireEvent.change(inputElement, { target: { value: "World" } });
-  expect(inputElement.value).toBe("World");
-});
+  test("renders correctly", () => {
+    render(<MessageInput />);
+    expect(
+      screen.getByPlaceholderText("Type Your Message")
+    ).toBeInTheDocument();
+  });
 
-// test("message gets correctly added to the chat history when form is submitted", () => {
-//   const addPostMock = jest.fn();
-//   jest.spyOn(useChatStore, "useChatStore").mockReturnValue({
-//     conversation: {
-//       posts: [],
-//       activeUserName: "user1", // Replace with your expected active user name
-//     },
-//     addPost: addPostMock,
-//   });
+  test("text in input field changes correctly when typing", () => {
+    render(<MessageInput />);
+    const inputElement = screen.getByPlaceholderText(
+      "Type Your Message"
+    ) as HTMLInputElement;
 
-//   render(<MessageInput />);
-//   const inputElement = screen.getByPlaceholderText(
-//     "Type Your Message"
-//   ) as HTMLInputElement;
-//   const formElement = screen.getByRole("form");
+    fireEvent.change(inputElement, { target: { value: "Hello" } });
+    expect(inputElement.value).toBe("Hello");
 
-//   fireEvent.change(inputElement, { target: { value: "Test message" } });
-//   fireEvent.submit(formElement);
+    fireEvent.change(inputElement, { target: { value: "World" } });
+    expect(inputElement.value).toBe("World");
+  });
 
-//   expect(addPostMock).toHaveBeenCalledWith({
-//     message: "Test message",
-//     read: false,
-//     timestamp: expect.any(Date),
-//     author: "user1", // Replace with your expected active user name
-//   });
-// });
+  test("form successfully submit when input field is populated", async () => {
+    render(<MessageInput />);
+    const PostsAtStart = useChatStore.getState().conversation.posts;
 
-test("input field gets cleared after a message is submitted", () => {
-  const originalUseChatStore = useChatStore;
-  const originalAddPost = useChatStore.getState().addPost;
+    const mockMessage = "Mock Message";
 
-  render(<MessageInput />);
-  const inputElement = screen.getByPlaceholderText(
-    "Type Your Message"
-  ) as HTMLInputElement;
+    const inputElement = screen.getByPlaceholderText(
+      "Type Your Message"
+    ) as HTMLInputElement;
+    fireEvent.change(inputElement, { target: { value: mockMessage } });
 
-  fireEvent.change(inputElement, { target: { value: "Hello" } });
-  fireEvent.submit(inputElement);
-  expect(inputElement.value).toBe("");
+    fireEvent.submit(screen.getByTestId("message-form"));
 
-  // Restore original functions
-  useChatStore.getState = originalUseChatStore.getState;
-  useChatStore.getState().addPost = originalAddPost;
-});
+    await waitFor(() => {
+      const store = useChatStore.getState();
+      expect(store.conversation.posts).toHaveLength(PostsAtStart.length + 1);
+    });
+  });
 
-test("form doesn't submit when input field is empty", () => {
-  render(<MessageInput />);
-  const PostsAtStart = useChatStore.getState().conversation.posts;
-  const inputElement = screen.getByPlaceholderText(
-    "Type Your Message"
-  ) as HTMLInputElement;
+  test("input field gets cleared after a message is submitted", () => {
+    const originalUseChatStore = useChatStore;
+    const originalAddPost = useChatStore.getState().addPost;
 
-  fireEvent.submit(inputElement);
+    render(<MessageInput />);
+    const inputElement = screen.getByPlaceholderText(
+      "Type Your Message"
+    ) as HTMLInputElement;
 
-  const store = useChatStore.getState();
-  expect(store.conversation.posts).toHaveLength(PostsAtStart.length);
+    fireEvent.change(inputElement, { target: { value: "Hello" } });
+    fireEvent.submit(inputElement);
+    expect(inputElement.value).toBe("");
+
+    // Restore original functions
+    useChatStore.getState = originalUseChatStore.getState;
+    useChatStore.getState().addPost = originalAddPost;
+  });
+
+  test("form doesn't submit when input field is empty", () => {
+    render(<MessageInput />);
+    const PostsAtStart = useChatStore.getState().conversation.posts;
+
+    const inputElement = screen.getByPlaceholderText(
+      "Type Your Message"
+    ) as HTMLInputElement;
+
+    fireEvent.submit(inputElement);
+
+    const store = useChatStore.getState();
+    expect(store.conversation.posts).toHaveLength(PostsAtStart.length);
+  });
 });

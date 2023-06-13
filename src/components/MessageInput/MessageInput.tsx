@@ -50,7 +50,7 @@ const MessageInput = () => {
         border: "50px",
         boxShadow: "0px -5px 15px 0px rgba(235,235,235,0.25)",
       }}>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} data-testid="message-form">
         <TextField
           sx={{
             backgroundColor: "white",
